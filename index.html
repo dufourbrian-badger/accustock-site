@@ -40,7 +40,7 @@
       color: #1a1a2e;
       text-decoration: none;
     }
-    .logo span { color: #4f46e5; }
+    .logo span { color: #0f766e; }
     nav a {
       color: #64748b;
       text-decoration: none;
@@ -49,27 +49,40 @@
       margin-left: 1.5rem;
       transition: color 0.2s;
     }
-    nav a:hover { color: #4f46e5; }
-    .nav-cta {
-      background: #4f46e5;
-      color: #fff !important;
+    nav a:hover { color: #0f766e; }
+    .coming-soon {
+      display: inline-block;
+      background: #f1f5f9;
+      color: #64748b;
       padding: 0.5rem 1.25rem;
       border-radius: 8px;
-      font-weight: 600;
-      transition: background 0.2s;
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 0.01em;
+      border: 1px solid #e2e8f0;
     }
-    .nav-cta:hover { background: #4338ca; }
+    .coming-soon-lg {
+      display: inline-block;
+      background: #f1f5f9;
+      color: #475569;
+      padding: 0.85rem 2rem;
+      border-radius: 10px;
+      font-weight: 500;
+      font-size: 1rem;
+      border: 1px solid #e2e8f0;
+    }
 
     /* Hero */
     .hero {
-      background: linear-gradient(135deg, #f0f0ff 0%, #e8f4f8 50%, #f0fdf4 100%);
+      background: #f8fafc;
       padding: 5rem 2rem 4rem;
       text-align: center;
+      border-bottom: 1px solid #e2e8f0;
     }
     .hero-badge {
       display: inline-block;
-      background: #ede9fe;
-      color: #4f46e5;
+      background: #ccfbf1;
+      color: #0f766e;
       font-size: 0.8rem;
       font-weight: 600;
       padding: 0.35rem 1rem;
@@ -87,10 +100,7 @@
     }
     .hero h1 em {
       font-style: normal;
-      background: linear-gradient(135deg, #4f46e5, #06b6d4);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #0f766e;
     }
     .hero p {
       font-size: 1.15rem;
@@ -100,17 +110,16 @@
     }
     .hero-cta {
       display: inline-block;
-      background: #4f46e5;
+      background: #0f766e;
       color: #fff;
       font-size: 1.05rem;
       font-weight: 600;
       padding: 0.85rem 2.5rem;
       border-radius: 10px;
       text-decoration: none;
-      transition: background 0.2s, transform 0.15s;
-      box-shadow: 0 4px 14px rgba(79,70,229,0.3);
+      transition: background 0.2s;
     }
-    .hero-cta:hover { background: #4338ca; transform: translateY(-1px); }
+    .hero-cta:hover { background: #115e59; }
 
     /* Problem Section */
     .problem {
@@ -124,7 +133,7 @@
     .section-label {
       font-size: 0.8rem;
       font-weight: 600;
-      color: #4f46e5;
+      color: #0f766e;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       margin-bottom: 0.75rem;
@@ -195,8 +204,8 @@
       font-weight: 600;
     }
     .demo-badge {
-      background: rgba(79,70,229,0.3);
-      color: #a5b4fc;
+      background: rgba(15,118,110,0.25);
+      color: #5eead4;
       font-size: 0.7rem;
       font-weight: 600;
       padding: 0.25rem 0.75rem;
@@ -260,7 +269,7 @@
       transition: color 0.3s;
     }
     .inv-qty.changed {
-      color: #4f46e5;
+      color: #0f766e;
       animation: pulse 0.4s ease;
     }
     @keyframes pulse {
@@ -273,7 +282,7 @@
       text-align: center;
     }
     .demo-btn {
-      background: #4f46e5;
+      background: #0f766e;
       color: #fff;
       border: none;
       font-family: inherit;
@@ -282,10 +291,10 @@
       padding: 0.7rem 1.75rem;
       border-radius: 8px;
       cursor: pointer;
-      transition: background 0.2s, transform 0.15s;
+      transition: background 0.2s;
       margin: 0.25rem;
     }
-    .demo-btn:hover { background: #4338ca; transform: translateY(-1px); }
+    .demo-btn:hover { background: #115e59; }
     .demo-btn.secondary {
       background: #e2e8f0;
       color: #475569;
@@ -308,7 +317,7 @@
     }
     .log-entry { padding: 0.15rem 0; }
     .log-entry .time { color: #94a3b8; }
-    .log-entry .action { color: #4f46e5; font-weight: 500; }
+    .log-entry .action { color: #0f766e; font-weight: 500; }
     .log-entry .deduct { color: #dc2626; }
     .log-entry .sync { color: #059669; }
 
@@ -331,13 +340,13 @@
       transition: border-color 0.2s, box-shadow 0.2s;
     }
     .feature-card:hover {
-      border-color: #c7d2fe;
-      box-shadow: 0 4px 16px rgba(79,70,229,0.08);
+      border-color: #99f6e4;
+      box-shadow: 0 4px 16px rgba(15,118,110,0.08);
     }
     .feature-icon {
       width: 48px;
       height: 48px;
-      background: #ede9fe;
+      background: #ccfbf1;
       border-radius: 12px;
       display: flex;
       align-items: center;
@@ -378,15 +387,15 @@
       transition: border-color 0.2s, background 0.2s;
     }
     .audience-tag:hover {
-      border-color: #4f46e5;
-      background: #f5f3ff;
-      color: #4f46e5;
+      border-color: #0f766e;
+      background: #f0fdfa;
+      color: #0f766e;
     }
 
     /* CTA */
     .final-cta {
       padding: 5rem 2rem;
-      background: linear-gradient(135deg, #4f46e5, #3730a3);
+      background: #0f172a;
       text-align: center;
       color: #fff;
     }
@@ -397,24 +406,19 @@
     }
     .final-cta p {
       font-size: 1.05rem;
-      color: #c7d2fe;
+      color: #cbd5e1;
       max-width: 500px;
       margin: 0 auto 2rem;
     }
-    .final-cta a {
+    .final-cta .coming-soon-dark {
       display: inline-block;
-      background: #fff;
-      color: #4f46e5;
-      font-size: 1.05rem;
-      font-weight: 600;
-      padding: 0.85rem 2.5rem;
+      background: rgba(255,255,255,0.08);
+      color: #cbd5e1;
+      padding: 0.85rem 2rem;
       border-radius: 10px;
-      text-decoration: none;
-      transition: transform 0.15s, box-shadow 0.2s;
-    }
-    .final-cta a:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      font-weight: 500;
+      font-size: 1rem;
+      border: 1px solid rgba(255,255,255,0.15);
     }
 
     /* Footer */
@@ -425,7 +429,7 @@
       padding: 2rem;
       font-size: 0.85rem;
     }
-    footer a { color: #a5b4fc; text-decoration: none; }
+    footer a { color: #5eead4; text-decoration: none; }
     footer a:hover { text-decoration: underline; }
   </style>
 </head>
@@ -438,7 +442,7 @@
       <nav>
         <a href="terms.html">Terms</a>
         <a href="privacy.html">Privacy</a>
-        <a href="https://apps.shopify.com/" class="nav-cta">Install on Shopify</a>
+        <span class="coming-soon">Coming soon to Shopify</span>
       </nav>
     </div>
   </header>
@@ -448,7 +452,7 @@
     <div class="hero-badge">Built for Shopify merchants</div>
     <h1>Stop guessing. Start <em>trusting your inventory.</em></h1>
     <p>AccuStock automatically tracks shared inventory across bundles, multipacks, and kits so Shopify always shows the right number.</p>
-    <a href="https://apps.shopify.com/" class="hero-cta">Install AccuStock Free</a>
+    <span class="coming-soon-lg">Coming soon to the Shopify App Store</span>
   </section>
 
   <!-- Problem -->
@@ -610,7 +614,7 @@
   <section class="final-cta">
     <h2>Ready to stop the spreadsheet madness?</h2>
     <p>Install AccuStock and set up your first component in under 5 minutes. Your inventory will thank you.</p>
-    <a href="https://apps.shopify.com/">Install AccuStock Free</a>
+    <span class="coming-soon-dark">Coming soon to the Shopify App Store</span>
   </section>
 
   <!-- Footer -->
