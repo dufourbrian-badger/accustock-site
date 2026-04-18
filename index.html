@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AccuStock — Smart Inventory for Shopify Bundles &amp; Kits</title>
+  <meta name="description" content="AccuStock automatically tracks shared inventory across Shopify bundles, multipacks, and kits. Stop overselling. Stop manual spreadsheets. Start trusting your numbers.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1a1a2e;
+      background: #fff;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #1a1a2e;
+      text-decoration: none;
+    }
+    .logo span { color: #4f46e5; }
+    nav a {
+      color: #64748b;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-left: 1.5rem;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: #4f46e5; }
+    .nav-cta {
+      background: #4f46e5;
+      color: #fff !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: #4338ca; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #f0f0ff 0%, #e8f4f8 50%, #f0fdf4 100%);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: #ede9fe;
+      color: #4f46e5;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      max-width: 800px;
+      margin: 0 auto 1.25rem;
+      color: #1a1a2e;
+    }
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, #4f46e5, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: #475569;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: #4f46e5;
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 0.85rem 2.5rem;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 4px 14px rgba(79,70,229,0.3);
+    }
+    .hero-cta:hover { background: #4338ca; transform: translateY(-1px); }
+
+    /* Problem Section */
+    .problem {
+      padding: 5rem 2rem;
+      background: #fff;
+    }
+    .section-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #4f46e5;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: 1.85rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: #64748b;
+      max-width: 650px;
+      margin-bottom: 2.5rem;
+    }
+
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .pain-card {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    .pain-card .icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .pain-card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #991b1b;
+    }
+    .pain-card p {
+      font-size: 0.9rem;
+      color: #7f1d1d;
+      line-height: 1.6;
+    }
+
+    /* Interactive Demo */
+    .demo-section {
+      padding: 5rem 2rem;
+      background: #f8fafc;
+    }
+    .demo-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+    .demo-header {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .demo-header h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .demo-badge {
+      background: rgba(79,70,229,0.3);
+      color: #a5b4fc;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+    }
+    .demo-body {
+      padding: 2rem;
+    }
+    .demo-scenario {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .demo-scenario p {
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+    .demo-scenario strong {
+      color: #1a1a2e;
+    }
+
+    .inventory-display {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    @media (max-width: 600px) {
+      .inventory-display { grid-template-columns: 1fr; }
+    }
+    .inv-panel {
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+    .inv-panel h4 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+    .inv-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .inv-row:last-child { border-bottom: none; }
+    .inv-name {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .inv-qty {
+      font-size: 1rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      min-width: 40px;
+      text-align: right;
+      transition: color 0.3s;
+    }
+    .inv-qty.changed {
+      color: #4f46e5;
+      animation: pulse 0.4s ease;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+      100% { transform: scale(1); }
+    }
+
+    .demo-actions {
+      text-align: center;
+    }
+    .demo-btn {
+      background: #4f46e5;
+      color: #fff;
+      border: none;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.7rem 1.75rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      margin: 0.25rem;
+    }
+    .demo-btn:hover { background: #4338ca; transform: translateY(-1px); }
+    .demo-btn.secondary {
+      background: #e2e8f0;
+      color: #475569;
+    }
+    .demo-btn.secondary:hover {
+      background: #cbd5e1;
+    }
+    .demo-log {
+      margin-top: 1.5rem;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1rem;
+      max-height: 160px;
+      overflow-y: auto;
+      font-size: 0.8rem;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      color: #475569;
+      line-height: 1.8;
+    }
+    .log-entry { padding: 0.15rem 0; }
+    .log-entry .time { color: #94a3b8; }
+    .log-entry .action { color: #4f46e5; font-weight: 500; }
+    .log-entry .deduct { color: #dc2626; }
+    .log-entry .sync { color: #059669; }
+
+    /* Features */
+    .features {
+      padding: 5rem 2rem;
+      background: #fff;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    .feature-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 2rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .feature-card:hover {
+      border-color: #c7d2fe;
+      box-shadow: 0 4px 16px rgba(79,70,229,0.08);
+    }
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: #ede9fe;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+    .feature-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .feature-card p {
+      font-size: 0.9rem;
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    /* Who it's for */
+    .audience {
+      padding: 5rem 2rem;
+      background: #f8fafc;
+    }
+    .audience-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+    .audience-tag {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 50px;
+      padding: 0.6rem 1.25rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #374151;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .audience-tag:hover {
+      border-color: #4f46e5;
+      background: #f5f3ff;
+      color: #4f46e5;
+    }
+
+    /* CTA */
+    .final-cta {
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, #4f46e5, #3730a3);
+      text-align: center;
+      color: #fff;
+    }
+    .final-cta h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .final-cta p {
+      font-size: 1.05rem;
+      color: #c7d2fe;
+      max-width: 500px;
+      margin: 0 auto 2rem;
+    }
+    .final-cta a {
+      display: inline-block;
+      background: #fff;
+      color: #4f46e5;
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 0.85rem 2.5rem;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+    .final-cta a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    /* Footer */
+    footer {
+      background: #1a1a2e;
+      color: #94a3b8;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+    }
+    footer a { color: #a5b4fc; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">Accu<span>Stock</span></a>
+      <nav>
+        <a href="terms.html">Terms</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="https://apps.shopify.com/" class="nav-cta">Install on Shopify</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-badge">Built for Shopify merchants</div>
+    <h1>Stop guessing. Start <em>trusting your inventory.</em></h1>
+    <p>AccuStock automatically tracks shared inventory across bundles, multipacks, and kits so Shopify always shows the right number.</p>
+    <a href="https://apps.shopify.com/" class="hero-cta">Install AccuStock Free</a>
+  </section>
+
+  <!-- Problem -->
+  <section class="problem">
+    <div class="section-inner">
+      <div class="section-label">The Problem</div>
+      <h2 class="section-title">Shopify doesn't link shared inventory</h2>
+      <p class="section-subtitle">If you sell the same product as singles, 3-packs, and gift sets, Shopify tracks each variant separately. That means oversells, angry customers, and hours of manual spreadsheet work.</p>
+
+      <div class="pain-grid">
+        <div class="pain-card">
+          <div class="icon">&#128200;</div>
+          <h3>Overselling</h3>
+          <p>A customer orders a 3-pack but your singles already claimed that stock. Shopify doesn't know, and now you're short.</p>
+        </div>
+        <div class="pain-card">
+          <div class="icon">&#128338;</div>
+          <h3>Manual reconciliation</h3>
+          <p>Merchants spend 30-60 minutes daily updating spreadsheets to figure out real stock. Every. Single. Day.</p>
+        </div>
+        <div class="pain-card">
+          <div class="icon">&#128561;</div>
+          <h3>No audit trail</h3>
+          <p>When numbers don't match, there's no way to trace what happened. Shopify's history caps at 250 entries.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Demo -->
+  <section class="demo-section">
+    <div class="section-inner" style="text-align:center; margin-bottom: 2rem;">
+      <div class="section-label">See it in action</div>
+      <h2 class="section-title">Watch inventory update in real time</h2>
+      <p class="section-subtitle" style="margin-left:auto; margin-right:auto;">Click "Simulate Order" to see how AccuStock automatically adjusts component stock and syncs Shopify quantities when a bundle is sold.</p>
+    </div>
+
+    <div class="demo-container">
+      <div class="demo-header">
+        <h3>AccuStock Dashboard</h3>
+        <div class="demo-badge">LIVE DEMO</div>
+      </div>
+      <div class="demo-body">
+        <div class="demo-scenario">
+          <p><strong>Setup:</strong> You sell Lavender Candles as singles (1 candle) and 3-packs (3 candles).<br>
+          Cedar Soap comes as singles (1 bar) and gift boxes (2 bars + 1 candle).</p>
+        </div>
+
+        <div class="inventory-display">
+          <div class="inv-panel">
+            <h4>Component Stock (Real Inventory)</h4>
+            <div class="inv-row">
+              <span class="inv-name">Lavender Candle</span>
+              <span class="inv-qty" id="comp-candle">50</span>
+            </div>
+            <div class="inv-row">
+              <span class="inv-name">Cedar Soap Bar</span>
+              <span class="inv-qty" id="comp-soap">30</span>
+            </div>
+          </div>
+
+          <div class="inv-panel">
+            <h4>Shopify Variant Quantities</h4>
+            <div class="inv-row">
+              <span class="inv-name">Single Candle</span>
+              <span class="inv-qty" id="var-single-candle">50</span>
+            </div>
+            <div class="inv-row">
+              <span class="inv-name">Candle 3-Pack</span>
+              <span class="inv-qty" id="var-3pack">16</span>
+            </div>
+            <div class="inv-row">
+              <span class="inv-name">Single Soap</span>
+              <span class="inv-qty" id="var-single-soap">30</span>
+            </div>
+            <div class="inv-row">
+              <span class="inv-name">Gift Box</span>
+              <span class="inv-qty" id="var-giftbox">15</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-actions">
+          <button class="demo-btn" onclick="simulateOrder()">Simulate Order</button>
+          <button class="demo-btn secondary" onclick="resetDemo()">Reset</button>
+        </div>
+
+        <div class="demo-log" id="demo-log">
+          <div class="log-entry"><span class="time">Ready</span> &mdash; Click "Simulate Order" to begin</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="section-inner">
+      <div class="section-label">Features</div>
+      <h2 class="section-title">Everything you need to trust your numbers</h2>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">&#128230;</div>
+          <h3>Component-Based Tracking</h3>
+          <p>Define your real physical items and link them to any number of Shopify variants. Set consumption ratios like "3-pack uses 3 units" and let AccuStock handle the math.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#9889;</div>
+          <h3>Automatic Adjustments</h3>
+          <p>Orders, cancellations, and refunds are processed instantly via Shopify webhooks. Stock levels update in seconds, not hours.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128203;</div>
+          <h3>Complete Audit Trail</h3>
+          <p>Every single stock change is logged with timestamps, before/after values, and source info. Trace any discrepancy back to the exact order.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128202;</div>
+          <h3>Real-Time Dashboard</h3>
+          <p>See all your component stock at a glance with low-stock alerts. Know exactly where you stand without opening a spreadsheet.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#127758;</div>
+          <h3>Multi-Location Support</h3>
+          <p>Track inventory across multiple Shopify locations. AccuStock manages stock per-location so your fulfillment stays accurate everywhere.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128274;</div>
+          <h3>Shopify Storefront Sync</h3>
+          <p>Corrected quantities are pushed back to Shopify automatically. Your customers always see accurate "Add to Cart" availability.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Audience -->
+  <section class="audience">
+    <div class="section-inner">
+      <div class="section-label">Built for</div>
+      <h2 class="section-title">Merchants who sell the same product in multiple forms</h2>
+      <p class="section-subtitle">If any of these sound like you, AccuStock was built for your store.</p>
+
+      <div class="audience-tags">
+        <span class="audience-tag">Candle makers</span>
+        <span class="audience-tag">Food &amp; beverage</span>
+        <span class="audience-tag">Beauty &amp; cosmetics</span>
+        <span class="audience-tag">Supplements &amp; vitamins</span>
+        <span class="audience-tag">Coffee &amp; tea</span>
+        <span class="audience-tag">Handmade &amp; craft</span>
+        <span class="audience-tag">Apparel bundles</span>
+        <span class="audience-tag">Gift sets &amp; kits</span>
+        <span class="audience-tag">Pet products</span>
+        <span class="audience-tag">Subscription boxes</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta">
+    <h2>Ready to stop the spreadsheet madness?</h2>
+    <p>Install AccuStock and set up your first component in under 5 minutes. Your inventory will thank you.</p>
+    <a href="https://apps.shopify.com/">Install AccuStock Free</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 AccuStock LLC. All rights reserved.</p>
+    <p style="margin-top: 0.5rem;">
+      <a href="terms.html">Terms of Service</a> &middot;
+      <a href="privacy.html">Privacy Policy</a> &middot;
+      <a href="mailto:support@accustockapp.com">Contact</a>
+    </p>
+  </footer>
+
+  <script>
+    // Demo state
+    const initial = { candle: 50, soap: 30 };
+    let stock = { ...initial };
+    let orderNum = 0;
+
+    const orders = [
+      { name: 'Candle 3-Pack', items: [{ comp: 'candle', qty: 3 }] },
+      { name: 'Single Candle', items: [{ comp: 'candle', qty: 1 }] },
+      { name: 'Gift Box', items: [{ comp: 'soap', qty: 2 }, { comp: 'candle', qty: 1 }] },
+      { name: 'Single Soap', items: [{ comp: 'soap', qty: 1 }] },
+      { name: 'Candle 3-Pack x2', items: [{ comp: 'candle', qty: 6 }] },
+      { name: 'Gift Box + Single Candle', items: [{ comp: 'soap', qty: 2 }, { comp: 'candle', qty: 2 }] },
+    ];
+
+    function now() {
+      return new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    }
+
+    function log(html) {
+      const el = document.getElementById('demo-log');
+      const entry = document.createElement('div');
+      entry.className = 'log-entry';
+      entry.innerHTML = html;
+      el.appendChild(entry);
+      el.scrollTop = el.scrollHeight;
+    }
+
+    function animateQty(id, value) {
+      const el = document.getElementById(id);
+      el.textContent = value;
+      el.classList.add('changed');
+      setTimeout(() => el.classList.remove('changed'), 400);
+    }
+
+    function updateShopify() {
+      const candle = stock.candle;
+      const soap = stock.soap;
+      // Derived quantities
+      animateQty('var-single-candle', candle);
+      animateQty('var-3pack', Math.floor(candle / 3));
+      animateQty('var-single-soap', soap);
+      // Gift box needs 2 soap + 1 candle
+      animateQty('var-giftbox', Math.min(Math.floor(soap / 2), candle));
+    }
+
+    function simulateOrder() {
+      const order = orders[orderNum % orders.length];
+      orderNum++;
+      const orderId = '#' + (1000 + orderNum);
+
+      log(`<span class="time">${now()}</span> <span class="action">ORDER ${orderId}</span> &mdash; ${order.name}`);
+
+      // Deduct after small delay
+      setTimeout(() => {
+        order.items.forEach(item => {
+          const compName = item.comp === 'candle' ? 'Lavender Candle' : 'Cedar Soap Bar';
+          const before = stock[item.comp];
+          stock[item.comp] = Math.max(0, stock[item.comp] - item.qty);
+          const after = stock[item.comp];
+          animateQty('comp-' + item.comp, after);
+          log(`<span class="time">${now()}</span> <span class="deduct">DEDUCT</span> ${compName}: ${before} → ${after} (−${item.qty})`);
+        });
+
+        // Sync to Shopify
+        setTimeout(() => {
+          updateShopify();
+          log(`<span class="time">${now()}</span> <span class="sync">SYNC</span> Shopify variant quantities updated`);
+        }, 300);
+      }, 200);
+    }
+
+    function resetDemo() {
+      stock = { ...initial };
+      orderNum = 0;
+      animateQty('comp-candle', 50);
+      animateQty('comp-soap', 30);
+      updateShopify();
+      document.getElementById('demo-log').innerHTML = '<div class="log-entry"><span class="time">Reset</span> &mdash; All stock restored to starting values</div>';
+    }
+  </script>
+</body>
+</html>

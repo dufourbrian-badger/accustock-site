@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service | AccuStock</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1a1a2e;
+      background: #fafbfc;
+      line-height: 1.7;
+    }
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      text-decoration: none;
+    }
+    .logo span { color: #4f46e5; }
+    nav a {
+      color: #64748b;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-left: 1.5rem;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: #4f46e5; }
+    nav a.active { color: #4f46e5; }
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #1a1a2e;
+    }
+    .effective-date {
+      color: #64748b;
+      font-size: 0.9rem;
+      margin-bottom: 2.5rem;
+    }
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+      color: #1a1a2e;
+    }
+    p {
+      margin-bottom: 1rem;
+      color: #374151;
+    }
+    ul {
+      margin: 0.5rem 0 1rem 1.5rem;
+      color: #374151;
+    }
+    li { margin-bottom: 0.4rem; }
+    a { color: #4f46e5; }
+    footer {
+      background: #1a1a2e;
+      color: #94a3b8;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+    }
+    footer a { color: #a5b4fc; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">Accu<span>Stock</span></a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="terms.html" class="active">Terms</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <h1>Terms of Service</h1>
+    <p class="effective-date">Effective Date: March 30, 2026</p>
+
+    <p>These Terms of Service ("Terms") govern your use of AccuStock ("the App"), a Shopify application provided by AccuStock LLC ("we," "us," or "our"), a North Carolina limited liability company. By installing or using the App, you agree to these Terms.</p>
+
+    <h2>1. Description of Service</h2>
+    <p>AccuStock is an inventory management application for Shopify merchants. The App provides component-based inventory tracking, allowing merchants to define physical items ("components"), link them to Shopify product variants with consumption ratios, and automatically adjust stock levels when orders are placed, cancelled, or refunded. The App also provides an audit trail of all inventory changes, a stock dashboard, and variant coverage reporting.</p>
+
+    <h2>2. Account and Access</h2>
+    <p>To use AccuStock, you must have an active Shopify store. The App is installed through the Shopify App Store and authenticates via Shopify's OAuth system. You are responsible for maintaining the security of your Shopify account. You must be at least 18 years old or the age of majority in your jurisdiction to use this service.</p>
+
+    <h2>3. Shopify API Permissions</h2>
+    <p>AccuStock requests the following Shopify API permissions to function:</p>
+    <ul>
+      <li><strong>Read products</strong> — to list your products and variants for linking</li>
+      <li><strong>Read orders</strong> — to process order data from webhooks for stock adjustments</li>
+      <li><strong>Read and write inventory</strong> — to read current levels and push corrected quantities back to Shopify</li>
+      <li><strong>Read locations</strong> — to support multi-location inventory tracking</li>
+    </ul>
+    <p>We only use these permissions for the purposes described above. We do not access data beyond what is necessary to provide the service.</p>
+
+    <h2>4. Your Responsibilities</h2>
+    <p>You are responsible for:</p>
+    <ul>
+      <li>Accurately configuring components, variant links, and consumption ratios</li>
+      <li>Reviewing stock levels and audit trail entries for accuracy</li>
+      <li>Maintaining accurate initial stock counts when setting up the App</li>
+      <li>Complying with applicable laws related to your business operations</li>
+    </ul>
+
+    <h2>5. Inventory Accuracy Disclaimer</h2>
+    <p>AccuStock calculates and adjusts inventory based on the data it receives from Shopify webhooks and the component configurations you provide. While we strive for accuracy, we do not guarantee that inventory levels will be perfectly accurate at all times. Factors such as webhook delivery failures, network issues, manual Shopify edits outside the App, or incorrect component configurations may result in discrepancies. You should periodically verify your inventory and use the App's reconciliation features as needed.</p>
+
+    <h2>6. Availability and Support</h2>
+    <p>We aim to keep AccuStock available and operational at all times, but we do not guarantee uninterrupted service. Planned maintenance, Shopify platform outages, or unforeseen technical issues may temporarily affect availability. For support inquiries, contact us at <a href="mailto:support@accustockapp.com">support@accustockapp.com</a>.</p>
+
+    <h2>7. Fees and Payment</h2>
+    <p>AccuStock's pricing is as listed on the Shopify App Store. Billing is handled entirely through Shopify's billing system. We do not directly collect or process payment information. Shopify's terms govern billing, refunds, and payment disputes.</p>
+
+    <h2>8. Data and Privacy</h2>
+    <p>Our collection and use of your data is described in our <a href="privacy.html">Privacy Policy</a>. By using the App, you agree to the data practices described therein.</p>
+
+    <h2>9. Intellectual Property</h2>
+    <p>AccuStock and all associated code, designs, documentation, and branding are the property of AccuStock LLC. You are granted a limited, non-exclusive, non-transferable license to use the App for your Shopify store operations for as long as you maintain an active subscription. You may not copy, modify, distribute, reverse engineer, or create derivative works based on the App.</p>
+
+    <h2>10. Limitation of Liability</h2>
+    <p>To the maximum extent permitted by law, AccuStock LLC shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, revenue, data, or business opportunity, arising from your use of or inability to use the App. Our total liability for any claim arising from these Terms or your use of the App shall not exceed the amount you paid to us in the twelve (12) months preceding the claim.</p>
+
+    <h2>11. Indemnification</h2>
+    <p>You agree to indemnify and hold harmless AccuStock LLC, its officers, and employees from any claims, damages, losses, or expenses arising from your use of the App, your violation of these Terms, or your violation of any third-party rights.</p>
+
+    <h2>12. Termination</h2>
+    <p>You may uninstall AccuStock at any time through your Shopify admin. Upon uninstallation, we will delete your shop data in accordance with Shopify's GDPR requirements and our Privacy Policy. We reserve the right to suspend or terminate your access if you violate these Terms or engage in activity that harms the service or other users.</p>
+
+    <h2>13. Changes to These Terms</h2>
+    <p>We may update these Terms from time to time. If we make material changes, we will notify you through the App or by email. Your continued use of AccuStock after changes take effect constitutes acceptance of the updated Terms.</p>
+
+    <h2>14. Governing Law</h2>
+    <p>These Terms are governed by the laws of the State of North Carolina, United States, without regard to conflict of law principles. Any disputes shall be resolved in the courts located in North Carolina.</p>
+
+    <h2>15. Contact</h2>
+    <p>If you have questions about these Terms, contact us at:</p>
+    <p>
+      AccuStock LLC<br>
+      Email: <a href="mailto:support@accustockapp.com">support@accustockapp.com</a><br>
+      Website: <a href="https://accustockapp.com">accustockapp.com</a>
+    </p>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 AccuStock LLC. All rights reserved.</p>
+    <p style="margin-top: 0.5rem;">
+      <a href="terms.html">Terms of Service</a> &middot;
+      <a href="privacy.html">Privacy Policy</a> &middot;
+      <a href="mailto:support@accustockapp.com">Contact</a>
+    </p>
+  </footer>
+</body>
+</html>
