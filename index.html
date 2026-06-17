@@ -5,6 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AccuStock — Smart Inventory for Shopify Bundles &amp; Kits</title>
   <meta name="description" content="AccuStock automatically tracks shared inventory across Shopify bundles, multipacks, and kits. Stop overselling. Stop manual spreadsheets. Start trusting your numbers.">
+  <link rel="canonical" href="https://accustockapp.com/">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AccuStock">
+  <meta property="og:url" content="https://accustockapp.com/">
+  <meta property="og:title" content="AccuStock — Smart Inventory for Shopify Bundles &amp; Kits">
+  <meta property="og:description" content="One shared stock count for your multipacks and bundles. Stop overselling, stop spreadsheets — AccuStock keeps shared inventory accurate across every Shopify variant automatically.">
+  <meta property="og:image" content="https://accustockapp.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AccuStock — Smart Inventory for Shopify Bundles &amp; Kits">
+  <meta name="twitter:description" content="One shared stock count for your multipacks and bundles. Stop overselling, stop spreadsheets — accurate inventory across every Shopify variant, automatically.">
+  <meta name="twitter:image" content="https://accustockapp.com/assets/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -50,26 +65,39 @@
       transition: color 0.2s;
     }
     nav a:hover { color: #0f766e; }
-    .coming-soon {
+    .install-btn {
       display: inline-block;
-      background: #f1f5f9;
-      color: #64748b;
+      background: #0f766e;
+      color: #fff;
       padding: 0.5rem 1.25rem;
       border-radius: 8px;
-      font-weight: 500;
+      font-weight: 600;
       font-size: 0.85rem;
       letter-spacing: 0.01em;
-      border: 1px solid #e2e8f0;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      transition: background 0.2s;
     }
-    .coming-soon-lg {
+    .install-btn:hover { background: #115e59; }
+    @media (max-width: 560px) {
+      header { padding: 0.85rem 1rem; }
+      .header-inner { flex-wrap: wrap; gap: 0.35rem 0; }
+      .logo { font-size: 1.25rem; }
+      nav a { margin-left: 0.9rem; font-size: 0.85rem; }
+      .install-btn { margin-left: 0.9rem; padding: 0.45rem 0.9rem; font-size: 0.8rem; }
+    }
+
+    /* Official Shopify App Store badge — self-hosted & unmodified per Shopify brand guidelines */
+    .badge-link {
       display: inline-block;
-      background: #f1f5f9;
-      color: #475569;
-      padding: 0.85rem 2rem;
-      border-radius: 10px;
-      font-weight: 500;
-      font-size: 1rem;
-      border: 1px solid #e2e8f0;
+      line-height: 0;
+      transition: opacity 0.2s;
+    }
+    .badge-link:hover { opacity: 0.85; }
+    .store-badge {
+      height: 48px;
+      width: auto;
+      display: block;
     }
 
     /* Hero */
@@ -410,17 +438,6 @@
       max-width: 500px;
       margin: 0 auto 2rem;
     }
-    .final-cta .coming-soon-dark {
-      display: inline-block;
-      background: rgba(255,255,255,0.08);
-      color: #cbd5e1;
-      padding: 0.85rem 2rem;
-      border-radius: 10px;
-      font-weight: 500;
-      font-size: 1rem;
-      border: 1px solid rgba(255,255,255,0.15);
-    }
-
     /* Footer */
     footer {
       background: #1a1a2e;
@@ -442,7 +459,7 @@
       <nav>
         <a href="terms.html">Terms</a>
         <a href="privacy.html">Privacy</a>
-        <span class="coming-soon">Coming soon to Shopify</span>
+        <a href="https://apps.shopify.com/accustock" class="install-btn" target="_blank" rel="noopener">Install on Shopify</a>
       </nav>
     </div>
   </header>
@@ -452,7 +469,9 @@
     <div class="hero-badge">Built for Shopify merchants</div>
     <h1>Stop guessing. Start <em>trusting your inventory.</em></h1>
     <p>AccuStock automatically tracks shared inventory across bundles, multipacks, and kits so Shopify always shows the right number.</p>
-    <span class="coming-soon-lg">Coming soon to the Shopify App Store</span>
+    <a href="https://apps.shopify.com/accustock" class="badge-link" target="_blank" rel="noopener" aria-label="Install AccuStock on the Shopify App Store">
+      <img src="assets/badge-shopify-app-store-dark.svg" alt="Available on the Shopify App Store" class="store-badge" width="166" height="44">
+    </a>
   </section>
 
   <!-- Problem -->
@@ -614,7 +633,9 @@
   <section class="final-cta">
     <h2>Ready to stop the spreadsheet madness?</h2>
     <p>Install AccuStock and set up your first component in under 5 minutes. Your inventory will thank you.</p>
-    <span class="coming-soon-dark">Coming soon to the Shopify App Store</span>
+    <a href="https://apps.shopify.com/accustock" class="badge-link" target="_blank" rel="noopener" aria-label="Install AccuStock on the Shopify App Store">
+      <img src="assets/badge-shopify-app-store-light.svg" alt="Available on the Shopify App Store" class="store-badge" width="166" height="44">
+    </a>
   </section>
 
   <!-- Footer -->
@@ -708,5 +729,9 @@
       document.getElementById('demo-log').innerHTML = '<div class="log-entry"><span class="time">Reset</span> &mdash; All stock restored to starting values</div>';
     }
   </script>
+
+  <!-- Cloudflare Web Analytics — privacy-first; use the "Exclude bots" filter in the dashboard to see human vs. bot/crawler traffic. -->
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+    data-cf-beacon='{"token": "08a23f2eb7ab4b42944204924b2a19dd"}'></script>
 </body>
 </html>
