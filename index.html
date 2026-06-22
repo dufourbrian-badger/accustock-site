@@ -3,23 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AccuStock — Smart Inventory for Shopify Bundles &amp; Kits</title>
-  <meta name="description" content="AccuStock automatically tracks shared inventory across Shopify bundles, multipacks, and kits. Stop overselling. Stop manual spreadsheets. Start trusting your numbers.">
+  <title>AccuStock — Bundle &amp; Multipack Inventory Sync for Shopify</title>
+  <meta name="description" content="AccuStock keeps one shared stock count across your Shopify bundles, multipacks, and kits — so you stop overselling and ditch the inventory spreadsheets.">
   <link rel="canonical" href="https://accustockapp.com/">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="AccuStock">
   <meta property="og:url" content="https://accustockapp.com/">
-  <meta property="og:title" content="AccuStock — Smart Inventory for Shopify Bundles &amp; Kits">
+  <meta property="og:title" content="AccuStock — Bundle &amp; Multipack Inventory Sync for Shopify">
   <meta property="og:description" content="One shared stock count for your multipacks and bundles. Stop overselling, stop spreadsheets — AccuStock keeps shared inventory accurate across every Shopify variant automatically.">
   <meta property="og:image" content="https://accustockapp.com/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AccuStock — Smart Inventory for Shopify Bundles &amp; Kits">
+  <meta name="twitter:title" content="AccuStock — Bundle &amp; Multipack Inventory Sync for Shopify">
   <meta name="twitter:description" content="One shared stock count for your multipacks and bundles. Stop overselling, stop spreadsheets — accurate inventory across every Shopify variant, automatically.">
   <meta name="twitter:image" content="https://accustockapp.com/assets/og-image.png">
+  <!-- Structured data: SoftwareApplication (helps Google understand the app + enables rich results) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "AccuStock",
+    "applicationCategory": "BusinessApplication",
+    "applicationSubCategory": "Inventory Management",
+    "operatingSystem": "Shopify",
+    "url": "https://accustockapp.com/",
+    "image": "https://accustockapp.com/assets/og-image.png",
+    "description": "AccuStock keeps one shared stock count across products sold as singles, multipacks, kits, and bundles on Shopify, auto-adjusting on every order, cancellation, and refund with a permanent audit log.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free plan available; paid plans from $9.99/month."
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AccuStock LLC",
+      "url": "https://accustockapp.com/"
+    }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -467,11 +492,12 @@
   <!-- Hero -->
   <section class="hero">
     <div class="hero-badge">Built for Shopify merchants</div>
-    <h1>Stop guessing. Start <em>trusting your inventory.</em></h1>
-    <p>AccuStock automatically tracks shared inventory across bundles, multipacks, and kits so Shopify always shows the right number.</p>
+    <h1>Stop overselling the products you sell as <em>singles, multipacks &amp; bundles.</em></h1>
+    <p>AccuStock keeps one true stock count across your bundles, multipacks, and kits — and syncs the right number to Shopify automatically.</p>
     <a href="https://apps.shopify.com/accustock" class="badge-link" target="_blank" rel="noopener" aria-label="Install AccuStock on the Shopify App Store">
       <img src="assets/badge-shopify-app-store-dark.svg" alt="Available on the Shopify App Store" class="store-badge" width="166" height="44">
     </a>
+    <p style="margin-top:1rem; font-size:0.85rem; color:#64748b;">Free plan · No credit card · No code · Built for Shopify</p>
   </section>
 
   <!-- Problem -->
@@ -490,12 +516,12 @@
         <div class="pain-card">
           <div class="icon">&#128338;</div>
           <h3>Manual reconciliation</h3>
-          <p>Merchants spend 30-60 minutes daily updating spreadsheets to figure out real stock. Every. Single. Day.</p>
+          <p>You burn time every day updating spreadsheets just to figure out your real stock. Every. Single. Day.</p>
         </div>
         <div class="pain-card">
           <div class="icon">&#128561;</div>
           <h3>No audit trail</h3>
-          <p>When numbers don't match, there's no way to trace what happened. Shopify's history caps at 250 entries.</p>
+          <p>When the numbers don't match, there's no easy way to trace what changed, when, or why.</p>
         </div>
       </div>
     </div>
@@ -506,7 +532,7 @@
     <div class="section-inner" style="text-align:center; margin-bottom: 2rem;">
       <div class="section-label">See it in action</div>
       <h2 class="section-title">Watch inventory update in real time</h2>
-      <p class="section-subtitle" style="margin-left:auto; margin-right:auto;">Click "Simulate Order" to see how AccuStock automatically adjusts component stock and syncs Shopify quantities when a bundle is sold.</p>
+      <p class="section-subtitle" style="margin-left:auto; margin-right:auto;">Click "Simulate Order" to see how AccuStock draws down one shared item stock and updates every variant's available quantity — so a 3-pack sale can't quietly oversell your singles.</p>
     </div>
 
     <div class="demo-container">
@@ -522,14 +548,14 @@
 
         <div class="inventory-display">
           <div class="inv-panel">
-            <h4>Component Stock (Real Inventory)</h4>
+            <h4>Item Stock (Real Inventory)</h4>
             <div class="inv-row">
               <span class="inv-name">Lavender Candle</span>
-              <span class="inv-qty" id="comp-candle">50</span>
+              <span class="inv-qty" id="item-candle">50</span>
             </div>
             <div class="inv-row">
               <span class="inv-name">Cedar Soap Bar</span>
-              <span class="inv-qty" id="comp-soap">30</span>
+              <span class="inv-qty" id="item-soap">30</span>
             </div>
           </div>
 
@@ -566,6 +592,14 @@
     </div>
   </section>
 
+  <!-- Post-demo CTA -->
+  <section style="background:#f8fafc; text-align:center; padding:0.5rem 2rem 4.5rem;">
+    <p style="color:#475569; font-size:1.05rem; margin-bottom:1.25rem;">Set this up on your own store — start free.</p>
+    <a href="https://apps.shopify.com/accustock" class="badge-link" target="_blank" rel="noopener" aria-label="Install AccuStock on the Shopify App Store">
+      <img src="assets/badge-shopify-app-store-dark.svg" alt="Available on the Shopify App Store" class="store-badge" width="166" height="44">
+    </a>
+  </section>
+
   <!-- Features -->
   <section class="features">
     <div class="section-inner">
@@ -575,23 +609,23 @@
       <div class="feature-grid">
         <div class="feature-card">
           <div class="feature-icon">&#128230;</div>
-          <h3>Component-Based Tracking</h3>
-          <p>Define your real physical items and link them to any number of Shopify variants. Set consumption ratios like "3-pack uses 3 units" and let AccuStock handle the math.</p>
+          <h3>Item-Based Tracking</h3>
+          <p>Define your real physical items and link them to any number of Shopify variants. Set how many units each variant uses — like "3-pack uses 3" — and let AccuStock handle the math.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">&#9889;</div>
           <h3>Automatic Adjustments</h3>
-          <p>Orders, cancellations, and refunds are processed instantly via Shopify webhooks. Stock levels update in seconds, not hours.</p>
+          <p>Orders, cancellations, and refunds are handled automatically via Shopify webhooks — and the corrected availability syncs back to your storefront, with no manual work.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">&#128203;</div>
           <h3>Complete Audit Trail</h3>
-          <p>Every single stock change is logged with timestamps, before/after values, and source info. Trace any discrepancy back to the exact order.</p>
+          <p>Every stock change is logged with timestamps and before/after values — including edits you make directly in Shopify. Trace any discrepancy back to its exact source: order, refund, or manual change.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">&#128202;</div>
           <h3>Real-Time Dashboard</h3>
-          <p>See all your component stock at a glance with low-stock alerts. Know exactly where you stand without opening a spreadsheet.</p>
+          <p>See all your item stock at a glance with low-stock alerts. Know exactly where you stand without opening a spreadsheet.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">&#127758;</div>
@@ -599,9 +633,9 @@
           <p>Track inventory across multiple Shopify locations. AccuStock manages stock per-location so your fulfillment stays accurate everywhere.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">&#128274;</div>
-          <h3>Shopify Storefront Sync</h3>
-          <p>Corrected quantities are pushed back to Shopify automatically. Your customers always see accurate "Add to Cart" availability.</p>
+          <div class="feature-icon">&#128737;</div>
+          <h3>Coverage View</h3>
+          <p>See at a glance which variants aren't linked to an item yet, so you can connect them before they oversell. Nothing slips through unprotected.</p>
         </div>
       </div>
     </div>
@@ -632,7 +666,7 @@
   <!-- Final CTA -->
   <section class="final-cta">
     <h2>Ready to stop the spreadsheet madness?</h2>
-    <p>Install AccuStock and set up your first component in under 5 minutes. Your inventory will thank you.</p>
+    <p>Install AccuStock and set up your first item in about 10 minutes — no code. Your inventory will thank you.</p>
     <a href="https://apps.shopify.com/accustock" class="badge-link" target="_blank" rel="noopener" aria-label="Install AccuStock on the Shopify App Store">
       <img src="assets/badge-shopify-app-store-light.svg" alt="Available on the Shopify App Store" class="store-badge" width="166" height="44">
     </a>
@@ -655,12 +689,12 @@
     let orderNum = 0;
 
     const orders = [
-      { name: 'Candle 3-Pack', items: [{ comp: 'candle', qty: 3 }] },
-      { name: 'Single Candle', items: [{ comp: 'candle', qty: 1 }] },
-      { name: 'Gift Box', items: [{ comp: 'soap', qty: 2 }, { comp: 'candle', qty: 1 }] },
-      { name: 'Single Soap', items: [{ comp: 'soap', qty: 1 }] },
-      { name: 'Candle 3-Pack x2', items: [{ comp: 'candle', qty: 6 }] },
-      { name: 'Gift Box + Single Candle', items: [{ comp: 'soap', qty: 2 }, { comp: 'candle', qty: 2 }] },
+      { name: 'Candle 3-Pack', items: [{ key: 'candle', qty: 3 }] },
+      { name: 'Single Candle', items: [{ key: 'candle', qty: 1 }] },
+      { name: 'Gift Box', items: [{ key: 'soap', qty: 2 }, { key: 'candle', qty: 1 }] },
+      { name: 'Single Soap', items: [{ key: 'soap', qty: 1 }] },
+      { name: 'Candle 3-Pack x2', items: [{ key: 'candle', qty: 6 }] },
+      { name: 'Gift Box + Single Candle', items: [{ key: 'soap', qty: 2 }, { key: 'candle', qty: 2 }] },
     ];
 
     function now() {
@@ -704,12 +738,12 @@
       // Deduct after small delay
       setTimeout(() => {
         order.items.forEach(item => {
-          const compName = item.comp === 'candle' ? 'Lavender Candle' : 'Cedar Soap Bar';
-          const before = stock[item.comp];
-          stock[item.comp] = Math.max(0, stock[item.comp] - item.qty);
-          const after = stock[item.comp];
-          animateQty('comp-' + item.comp, after);
-          log(`<span class="time">${now()}</span> <span class="deduct">DEDUCT</span> ${compName}: ${before} → ${after} (−${item.qty})`);
+          const itemName = item.key === 'candle' ? 'Lavender Candle' : 'Cedar Soap Bar';
+          const before = stock[item.key];
+          stock[item.key] = Math.max(0, stock[item.key] - item.qty);
+          const after = stock[item.key];
+          animateQty('item-' + item.key, after);
+          log(`<span class="time">${now()}</span> <span class="deduct">DEDUCT</span> ${itemName}: ${before} → ${after} (−${item.qty})`);
         });
 
         // Sync to Shopify
@@ -723,8 +757,8 @@
     function resetDemo() {
       stock = { ...initial };
       orderNum = 0;
-      animateQty('comp-candle', 50);
-      animateQty('comp-soap', 30);
+      animateQty('item-candle', 50);
+      animateQty('item-soap', 30);
       updateShopify();
       document.getElementById('demo-log').innerHTML = '<div class="log-entry"><span class="time">Reset</span> &mdash; All stock restored to starting values</div>';
     }
