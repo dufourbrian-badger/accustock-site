@@ -4,3 +4,13 @@ node_modules/
 .env.local
 .vscode/
 .idea/
+
+.cf-analytics.env
+
+# Internal GTM / strategy docs — must NEVER deploy to the public site
+.cf-analytics.env.example
+cf-traffic.sh
+social-listening-log.md
+social-listening-drafts-*.md
+social-listening-targets.md
+_proposals/
