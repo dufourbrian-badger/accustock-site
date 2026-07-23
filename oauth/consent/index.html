@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Open Brain — authorize</title>
+<style>
+body{font-family:-apple-system,sans-serif;max-width:26rem;margin:4rem auto;padding:0 1rem;color:#222}
+input,button{font-size:1rem;padding:.6rem;width:100%;margin:.25rem 0;box-sizing:border-box}
+button{cursor:pointer;border:none;border-radius:.4rem}
+#approve{background:#1a7f37;color:#fff}#deny{background:#eee}
+.err{color:#b00;min-height:1.2em}
+</style>
+</head>
+<body>
+<h2>Open Brain</h2>
+<div id="status">Loading…</div>
+<div id="login" style="display:none">
+  <p>Sign in to authorize access to your memory.</p>
+  <input id="email" type="email" placeholder="Email" autocomplete="username">
+  <input id="password" type="password" placeholder="Password" autocomplete="current-password">
+  <button id="signin">Sign in</button><div class="err" id="loginerr"></div>
+</div>
+<div id="consent" style="display:none">
+  <p>Allow <b id="client">this application</b> to access your Open Brain memory?</p>
+  <button id="approve">Approve</button><button id="deny">Deny</button>
+  <div class="err" id="consenterr"></div>
+</div>
+<script type="module">
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+const sb = createClient(
+  "https://hpdmynubtgtozohukkye.supabase.co",
+  "sb_publishable_rVXcWDTD3l4MIp2UjKNK9w_SMX6VEx-",
+);
+const authId = new URLSearchParams(location.search).get("authorization_id");
+const $ = (id) => document.getElementById(id);
+async function show() {
+  const { data: { session } } = await sb.auth.getSession();
+  $("status").style.display = "none";
+  if (!session) { $("login").style.display = "block"; return; }
+  $("login").style.display = "none";
+  $("consent").style.display = "block";
+  try {
+    const { data } = await sb.auth.oauth.getAuthorizationDetails(authId);
+    if (data?.client?.client_name) $("client").textContent = data.client.client_name;
+  } catch {}
+}
+$("signin").onclick = async () => {
+  const { error } = await sb.auth.signInWithPassword({
+    email: $("email").value.trim(), password: $("password").value });
+  $("loginerr").textContent = error ? error.message : "";
+  if (!error) show();
+};
+$("approve").onclick = async () => {
+  const { data, error } = await sb.auth.oauth.approveAuthorization(authId);
+  if (error) { $("consenterr").textContent = error.message; return; }
+  if (data?.redirect_to) location.href = data.redirect_to;
+};
+$("deny").onclick = async () => {
+  const { data, error } = await sb.auth.oauth.denyAuthorization(authId);
+  if (error) { $("consenterr").textContent = error.message; return; }
+  if (data?.redirect_to) location.href = data.redirect_to;
+};
+show();
+</script>
+</body>
+</html>
